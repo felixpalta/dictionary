@@ -19,6 +19,7 @@ Available arguments:
 #include <sstream>
 #include <vector>
 
+#include "Arguments.h"
 using namespace  std;
 
 // prints program manual
@@ -27,67 +28,31 @@ void print_manual(){
 };
 
 
+
 int main(int argc, char* argv[])
 try {
 	
-	enum Operation {
-		PRINT_ALL,
-		PRINT_TOP,
-		FIND_WORDS,
-		BAD,
-	};
+	Arguments args(argc,argv);	// either creates a set of arguments or throws an exception
 
 	map<string,int> words;	// container for the dictionary
-	Operation op = BAD;
-	int top_number = 0;	// number of top entries to find with -top argument
-	vector<string> words_to_find;	// list of entries to find with -find argument
-
-
-
-	switch (argc){
-	case 0: throw runtime_error("argc == 0"); break;	// hardly possible
-	case 1: throw invalid_argument("At least one argument needed"); break;
-	case 2: 
-		if (string(argv[1]) != "-all") throw invalid_argument("Wrong argument, expected -all");
-		op = PRINT_ALL;
-		break;
-	default:
-		if (string(argv[1]) == "-top" && argc == 3) {
-			istringstream iss(argv[2]);
-			iss >> top_number;
-			if (! iss ) 
-				throw invalid_argument("Expected number of top entries after -top");
-			op = PRINT_TOP;
-			break;
-		} else if (string(argv[1]) == "-find"){
-			for (int i = 2; i < argc; ++i) words_to_find.push_back(string(argv[i]));
-			if (words_to_find.size() == 0) throw invalid_argument("Expected a list of entries to find");
-			op = FIND_WORDS;
-			break;
-		}
-		throw invalid_argument("Expected -top with number of entries or -find with a list of entries");
-		break;
-	}
 
 	string s;
 	while (cin >> s) ++words[s];
 
 	typedef map<string,int>::const_iterator Iter;
-	switch (op){
-	case BAD: throw runtime_error("Argument parsing error"); break;
-	case PRINT_ALL:
+	switch (args.operation()){
+	case Arguments::BAD: throw runtime_error("Argument parsing error"); break;
+	case Arguments::PRINT_ALL:
 		for (Iter i = words.begin(); i != words.end(); ++i)
 			cout << i->first << ": " << i->second << endl;
 		break;
-	case PRINT_TOP:
+	case Arguments::PRINT_TOP:
 		break;
-	case FIND_WORDS:
+	case Arguments::FIND_WORDS:
 		break;
 	default:
 		break;
-	}
-	
-	
+	}	
 }
 
 catch (invalid_argument& e){
