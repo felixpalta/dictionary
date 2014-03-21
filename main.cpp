@@ -21,13 +21,8 @@ Available arguments:
 #include "Arguments.h"
 #include "applyOperation.h"
 #include "Dictionary.h"
-
+#include "print_manual.h"
 using namespace  std;
-
-// prints program manual
-void print_manual(){
-	cout << "manual here!" << endl;
-};
 
 int main(int argc, char* argv[])
 try {
@@ -44,7 +39,6 @@ try {
 
 catch (invalid_argument& e){
 	cout << e.what() << endl;
-	print_manual();
 	return 1;
 }
 catch (runtime_error& e){
