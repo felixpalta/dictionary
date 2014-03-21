@@ -20,6 +20,7 @@ Available arguments:
 #include <vector>
 
 #include "Arguments.h"
+#include "applyOperation.h"
 using namespace  std;
 
 // prints program manual
@@ -27,32 +28,18 @@ void print_manual(){
 	cout << "manual here!" << endl;
 };
 
-
-
 int main(int argc, char* argv[])
 try {
 	
 	Arguments args(argc,argv);	// either creates a set of arguments or throws an exception
 
-	map<string,int> words;	// container for the dictionary
+	Dictionary words;	// container for the dictionary
 
 	string s;
 	while (cin >> s) ++words[s];
 
-	typedef map<string,int>::const_iterator Iter;
-	switch (args.operation()){
-	case Arguments::BAD: throw runtime_error("Argument parsing error"); break;
-	case Arguments::PRINT_ALL:
-		for (Iter i = words.begin(); i != words.end(); ++i)
-			cout << i->first << ": " << i->second << endl;
-		break;
-	case Arguments::PRINT_TOP:
-		break;
-	case Arguments::FIND_WORDS:
-		break;
-	default:
-		break;
-	}	
+	applyOperation(words,args.operation());
+	
 }
 
 catch (invalid_argument& e){
@@ -65,3 +52,4 @@ catch (runtime_error& e){
 	cout << e.what() << endl;
 	return 2;
 }
+
