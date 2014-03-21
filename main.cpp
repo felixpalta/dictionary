@@ -33,7 +33,7 @@ try {
 
 	words.get_data();	// parses input for text
 
-	applyOperation(words.data(),args);
+	applyOperation(words.data(),args);	// uses -find or -all options on the dictionary
 	
 }
 

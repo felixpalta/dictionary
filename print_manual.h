@@ -7,7 +7,7 @@ inline void print_usage(){
 		"Available arguments:\n"
 		"-all : print all entries with the numbers of their occurrences\n" 
 		"-find entry1 entry2 entry3 : search for entries in the dictionary with the numbers of their occurrences\n"
-		"\nExample: dictionary -find Romeo Juliette < RomeoAndJuliette.txt"
+		"\nExample: dictionary -find Romeo Juliet < RomeoAndJuliet.txt"
 		<< std:: endl;
 }
 

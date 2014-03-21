@@ -13,6 +13,11 @@ void applyOperation(const Words_map& words, const Arguments& args){
 
 	typedef Words_map::const_iterator Iter;
 
+	if (words.size() == 0) {
+		throw invalid_argument("No input from stdin received");
+		return;
+	}
+
 	switch (args.operation()){
 	case Arguments::BAD: 
 		throw runtime_error("Argument parsing error"); return;
