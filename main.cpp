@@ -21,6 +21,8 @@ Available arguments:
 
 #include "Arguments.h"
 #include "applyOperation.h"
+#include "Dictionary.h"
+
 using namespace  std;
 
 // prints program manual
@@ -35,10 +37,9 @@ try {
 
 	Dictionary words;	// container for the dictionary
 
-	string s;
-	while (cin >> s) ++words[s];
+	words.get_data();	// parses input for text
 
-	applyOperation(words,args.operation());
+	applyOperation(words.data(),args.operation());
 	
 }
 

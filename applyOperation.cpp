@@ -9,8 +9,8 @@
 
 using namespace std;
 
-void applyOperation(const Dictionary& words, Arguments::Operation op){
-	typedef Dictionary::const_iterator Iter;
+void applyOperation(const Words_map& words, Arguments::Operation op){
+	typedef Words_map::const_iterator Iter;
 	switch (op){
 	case Arguments::BAD: throw runtime_error("Argument parsing error"); break;
 	case Arguments::PRINT_ALL:

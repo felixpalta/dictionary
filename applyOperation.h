@@ -3,7 +3,6 @@
 #include <map>
 #include <string>
 #include "Arguments.h"
+#include "Dictionary_containter.h"
 
-typedef std::map<std::string,int> Dictionary;
-
-void applyOperation(const Dictionary& words, Arguments::Operation op);
+void applyOperation(const Words_map& words, Arguments::Operation op);
