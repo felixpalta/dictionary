@@ -39,7 +39,7 @@ try {
 
 	words.get_data();	// parses input for text
 
-	applyOperation(words.data(),args.operation());
+	applyOperation(words.data(),args);
 	
 }
 

@@ -5,4 +5,4 @@
 #include "Arguments.h"
 #include "Dictionary_containter.h"
 
-void applyOperation(const Words_map& words, Arguments::Operation op);
+void applyOperation(const Words_map& words, const Arguments& args);
