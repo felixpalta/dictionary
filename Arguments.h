@@ -10,7 +10,6 @@ public:
 	typedef std::vector<std::string> entriesVector;
 	enum Operation {
 		PRINT_ALL,
-		PRINT_TOP,
 		FIND_WORDS,
 		BAD,
 	};

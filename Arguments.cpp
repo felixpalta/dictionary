@@ -14,14 +14,7 @@ Arguments::Arguments(int argc, char* argv[])
 		op = PRINT_ALL;
 		break;
 	default:
-		if (string(argv[1]) == "-top" && argc == 3) {
-			istringstream iss(argv[2]);
-			iss >> top_number;
-			if (! iss ) 
-				throw invalid_argument("Expected number of top entries after -top");
-			op = PRINT_TOP;
-			break;
-		} else if (string(argv[1]) == "-find"){
+		if (string(argv[1]) == "-find"){
 			for (int i = 2; i < argc; ++i) words_to_find.push_back(string(argv[i]));
 			if (words_to_find.size() == 0) throw invalid_argument("Expected a list of entries to find");
 			op = FIND_WORDS;
