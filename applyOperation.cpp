@@ -13,7 +13,7 @@ void applyOperation(const Words_map& words, const Arguments& args){
 
 	typedef Words_map::const_iterator Iter;
 
-	if (words.size() == 0) {
+    if (words.empty()) {
 		throw invalid_argument("No input from stdin received");
 		return;
 	}
