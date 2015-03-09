@@ -17,7 +17,7 @@ Available arguments:
 #include <string>
 #include <sstream>
 #include <vector>
-
+#include <stdexcept>
 #include "Arguments.h"
 #include "applyOperation.h"
 #include "Dictionary.h"

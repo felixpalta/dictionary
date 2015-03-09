@@ -3,7 +3,7 @@
 #include <iterator>
 #include <string>
 #include <vector>
-
+#include <stdexcept>
 #include "Arguments.h"
 #include "applyOperation.h"
 

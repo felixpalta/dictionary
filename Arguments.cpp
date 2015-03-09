@@ -1,5 +1,7 @@
 #include <iostream>
 #include <sstream>
+#include <stdexcept>
+#include <cstdlib>
 #include "Arguments.h"
 #include "print_manual.h"
 

@@ -8,7 +8,7 @@ class Dictionary  {
 	
 public:
 	Dictionary(): words() {
-	};
+    }
 	void get_data();
 	const Words_map& data() const {return words;}
 private:

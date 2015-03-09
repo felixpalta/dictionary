@@ -18,5 +18,5 @@ inline void print_manual(){
 		"It also counts numbers of occurrences of each word.\n"
 		<< std::endl;
 	print_usage();
-};
+}
 
