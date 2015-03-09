@@ -11,3 +11,4 @@ Available arguments:
 	- searches for entries in the dictionary with the numbers of their occurrences
 	
 Example: dictionary -find Romeo Juliet < RomeoAndJuliet.txt
+
